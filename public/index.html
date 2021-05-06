@@ -1,0 +1,43 @@
+<!doctype html> <html lang="en"><head>
+<meta charset="UTF-8">
+  <title>to do list, v3</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+ 
+</head>
+<body>
+
+<div ng-app="todoList3"
+<div class="container">
+   <h4 id='time_loaded'></h4>   <!-- time of initial page load  -->
+
+   <h1>Contact List</h1>
+   <div ng-controller="mainCtrl">
+  
+      <div>
+		   <input type="text" ng-model="newName" size="20" placeholder="New Contact Name"> &nbsp; 
+           <input type="text" ng-model="newEmail" size="20" placeholder="New Contact Email">
+		   &nbsp; <button ng-click="addContact()" class="btn btn-primary btn-sm">Add Contact</button>
+      </div><br>
+    
+      <div class="well well-sm" ng-repeat="($index, contact) in contacts">
+          <span>{{contact.name + " - " + contact.email}}</span> 
+          <span  style = "float: right; margin-right: 20px;"> 
+               <a href='' ng-click="deleteContact(contact)">delete</a>  
+			 <!-- <a href='' ng-click="deleteContact(contact, $index)">delete</a> -->
+          </span> 
+      </div> <!-- end ng-repeat -->
+     
+   </div>  <!-- end controller -->
+</div>  <!-- end bootstrap class=container -->
+</div>  <!-- end todoList3 module -->
+   <script> 
+      document.getElementById('time_loaded').innerHTML = 'Page loaded: ' + new Date().toLocaleTimeString()
+   </script>
+   
+  <script src="scripts/app.js" type="text/javascript"></script>
+</body>
+</html>
